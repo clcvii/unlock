@@ -97,6 +97,7 @@ input {
 
     [data-fulfilled] & {
       display: block;
+      text-transform: none;
     }
   }
 }
