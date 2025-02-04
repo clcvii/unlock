@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'Cyan';
+  src: url('./assets/fonts/cyan.woff2') format('woff2'),
+    url('./assets/fonts/cyan.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* prettier-ignore */
+@keyframes shake {
+  0% { transform: translateX(0) }
+  25% { transform: translateX(5px) }
+  50% { transform: translateX(-5px) }
+  75% { transform: translateX(5px) }
+  100% { transform: translateX(0) }
+ }
+
+html,
+body,
+h1,
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  place-items: center;
+  place-content: center;
+}
+
+html {
+  min-height: 100svh;
+
+  font-family: 'Cyan', serif;
+  font-size: max(14px, 2vmin);
+
+  text-align: center;
+  text-transform: uppercase;
+
+  background: url('./assets/images/tile.jpg') repeat center center fixed;
+}
+
+body {
+  gap: 3em;
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+
+  font-weight: normal;
+  color: #333;
+  text-align: center;
+
+  small {
+    font-size: 1em;
+  }
+
+  span {
+    font-size: 2em;
+  }
+}
+
+form {
+  gap: 1em;
+
+  &[data-errored] {
+    animation: shake 0.15s;
+  }
+}
+
+button,
+input {
+  all: unset;
+}
+
+input {
+  display: none;
+  padding: 0.5em 1em;
+  border: 1px solid currentcolor;
+
+  &::placeholder {
+    color: inherit;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+
+  &[name='password'] {
+    display: block;
+
+    [data-fulfilled] & {
+      display: none;
+    }
+  }
+
+  &[name='serial'] {
+    display: none;
+
+    [data-fulfilled] & {
+      display: block;
+    }
+  }
+}
+
+button {
+  cursor: pointer;
+
+  [data-fulfilled] & {
+    cursor: default;
+    text-decoration: line-through;
+    pointer-events: none;
+  }
+}

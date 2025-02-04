@@ -1,0 +1,19 @@
+{
+  "name": "@clcvii/unlock",
+  "version": "1.0.0",
+  "main": "dist/index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "author": {
+    "name": "David Enke",
+    "email": "post@davidenke.de"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "22.13.1",
+    "typescript": "5.7.3",
+    "vite": "6.0.11"
+  }
+}
